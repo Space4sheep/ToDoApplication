@@ -14,14 +14,14 @@
         </Grid.RowDefinitions>
         <ListBox x:Name="ToDoListBox" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="12,8,12,8" SelectionChanged="ToDoListBox_SelectionChanged" MouseDoubleClick="ToDoListBox_MouseDoubleClick"/>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button x:Name="AddButton" Content="Додати" Margin="12,0,8,12" Width="79" Padding="8,1,8,1"/>
-            <Button x:Name="ComplateButton" Content="Завершити" Margin="0,0,8,12" Width="86" Padding="8,1,8,1"/>
-            <Button x:Name="DeleteButton" Content="Видалити" Margin="0,0,0,12" Width="70" Padding="8,1,13,1"/>
+            <Button x:Name="AddButton" Content="Додати" Margin="12,0,8,12" Width="79" Padding="8,1,8,1" Click="AddButton_Click"/>
+            <Button x:Name="ComplateButton" Content="Завершити" Margin="0,0,8,12" Width="86" Padding="8,1,8,1" Click="ComplateButton_Click"/>
+            <Button x:Name="DeleteButton" Content="Видалити" Margin="0,0,0,12" Width="70" Padding="8,1,13,1" Click="DeleteButton_Click"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <RadioButton x:Name="AllRadiButton" Content="Усі" Margin="12,12,8,0"/>
-            <RadioButton x:Name="NotCompetedRadioButton" Content="Не виконані" Margin="0,12,8,12"/>
-            <RadioButton x:Name="CompletedRadioButton" Content="Виконані" Margin="0,12,0,12"/>
+            <RadioButton x:Name="AllRadiButton" Content="Усі" Margin="12,12,8,0" Checked="AllRadiButton_Checked"/>
+            <RadioButton x:Name="NotCompetedRadioButton" Content="Не виконані" Margin="0,12,8,12" Checked="NotCompetedRadioButton_Checked"/>
+            <RadioButton x:Name="CompletedRadioButton" Content="Виконані" Margin="0,12,0,12" Checked="CompletedRadioButton_Checked"/>
         </StackPanel>
 
     </Grid>

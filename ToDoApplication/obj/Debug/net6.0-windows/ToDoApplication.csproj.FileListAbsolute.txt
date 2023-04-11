@@ -19,3 +19,5 @@ D:\my_projects\c_sharp\ToDoApplication\ToDoApplication\obj\Debug\net6.0-windows\
 D:\my_projects\c_sharp\ToDoApplication\ToDoApplication\obj\Debug\net6.0-windows\ToDoApplication.pdb
 D:\my_projects\c_sharp\ToDoApplication\ToDoApplication\obj\Debug\net6.0-windows\ToDoApplication.genruntimeconfig.cache
 D:\my_projects\c_sharp\ToDoApplication\ToDoApplication\obj\Debug\net6.0-windows\ref\ToDoApplication.dll
+D:\my_projects\c_sharp\ToDoApplication\ToDoApplication\obj\Debug\net6.0-windows\NewTaskWindow.g.cs
+D:\my_projects\c_sharp\ToDoApplication\ToDoApplication\obj\Debug\net6.0-windows\NewTaskWindow.baml

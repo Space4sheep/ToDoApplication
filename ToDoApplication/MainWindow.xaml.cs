@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace ToDoApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Task> tasksList = new List<Task>();
+        ObservableCollection<Task> tasksList = new ObservableCollection<Task>();
         public MainWindow()
         {
             InitializeComponent();
@@ -64,6 +65,69 @@ namespace ToDoApplication
             if (selected != null)
             {
                 MessageBox.Show(selected.Description);
+            }
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewTaskWindow window = new NewTaskWindow();
+            window.Owner = this;
+            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            if(window.ShowDialog() == true)
+            {
+                Task newTask = window.Result;
+                tasksList.Add(newTask);
+            }
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            int index = ToDoListBox.SelectedIndex;
+            if (index != -1)
+            {
+                tasksList.RemoveAt(index);
+            }
+        }
+
+        private void ComplateButton_Click(object sender, RoutedEventArgs e)
+        {
+            int index = ToDoListBox.SelectedIndex;
+            if (index != -1)
+            {
+                tasksList[index].IsCompleted = true;
+            }
+        }
+
+        private void AllRadiButton_Checked(object sender, RoutedEventArgs e)
+        {
+            ToDoListBox.ItemsSource = tasksList;
+        }
+
+        private void NotCompetedRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            ObservableCollection<Task> filtered = new ObservableCollection<Task>();
+            for (int i = 0; i < tasksList.Count; i++)
+            {
+                Task current = tasksList[i];
+                if (current.IsCompleted == false)
+                {
+                    filtered.Add(current);
+                }
+                ToDoListBox.ItemsSource = filtered;
+            }
+        }
+
+        private void CompletedRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            ObservableCollection<Task> filtered = new ObservableCollection<Task>();
+            for (int i = 0; i < tasksList.Count; i++)
+            {
+                Task current = tasksList[i];
+                if (current.IsCompleted == true)
+                {
+                    filtered.Add(current);
+                }
+                ToDoListBox.ItemsSource = filtered;
             }
         }
     }
